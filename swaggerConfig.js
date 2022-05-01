@@ -12,7 +12,7 @@ const swaggerOptions = {
             servers: ["lamejorurl"]
         }
     },
-    apis: ["index.js"]
+    apis: [ "./routes/productos/*.js"]
 }
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
 
