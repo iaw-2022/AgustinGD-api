@@ -1,8 +1,8 @@
-const productoService = require('./../service/productoService');
+const productoDAO = require('./../dao/productoDAO');
 
 class ProductoController{
     async getAll(req, res){
-        productoService.getAll()
+        productoDAO.getAll()
         .then( productos =>{
             res.status(200).json(productos)
         })
