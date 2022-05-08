@@ -1,8 +1,8 @@
-const db = require('./../database/databaseConfig');
+const database = require('../database/database');
 
 class ProductoDAO{
     async getAll(){
-        return db('productos');
+        return database('productos');
     }
 }
 

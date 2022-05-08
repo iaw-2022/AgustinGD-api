@@ -1,4 +1,4 @@
-const config = require('./../config');
+const config = require('../config');
 const dataBaseEngine = config.DATABASE_ENVIRONMENT || 'production';
 const dataBaseConfig = require('./knexfile')[dataBaseEngine];
 
