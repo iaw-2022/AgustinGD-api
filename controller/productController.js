@@ -1,6 +1,6 @@
 const productoDAO = require('../dao/productDAO');
 
-class ProductoController{
+class ProductController{
     async getAll(req, res){
         productoDAO.getAll()
         .then( productos =>{
@@ -32,4 +32,4 @@ class ProductoController{
     }
 }
 
-module.exports = new ProductoController();
+module.exports = new ProductController();
