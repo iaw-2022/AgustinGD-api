@@ -3,16 +3,26 @@ const swaggerJsdoc = require('swagger-jsdoc');
 
 const swaggerOptions = {
     swaggerDefinition:{
+        openapi: "3.0.3",
         info:{
             title: "API granja",
             description: "API para productos de la granja",
             contact: {
                 name: "Agustin Emanuel Gonzalez Diaz"
-            },
-            servers: ["lamejorurl"]
+            }, 
+            servers: [
+              {
+                "url": "https://api-granja-agustingd.herokuapp.com/",
+                "description": "Server de produccion"
+              }
+            ],
+            version: "1.0.0"
         }
     },
-    apis: [ "./routes/*/*.js"]
+    apis: [ 
+        "./routes/*/*.js", 
+        "./schemas/*.js"
+    ]
 }
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
 
