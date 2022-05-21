@@ -9,7 +9,17 @@ class ProductController{
         .catch( error =>{
             res.status(500).json({ message: 'No se pudieron recuperar los productos'})
         })
-    }        
+    }
+    
+    async getProductById(req, res){
+        productoDAO.getProductById(req.params)
+        .then( products =>{
+            res.status(200).json(products)
+        })
+        .catch( error =>{
+            res.status(500).json({ message: 'No se pudieron recuperar los productos'})
+        })
+    }
 
     async getRandomLimited(req, res){
         productoDAO.getRandomLimited(req.params)

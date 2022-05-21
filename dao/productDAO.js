@@ -5,6 +5,11 @@ class ProductDAO {
         return database('productos');
     }
 
+    getProductById(params) {
+        const { id } = params
+        return database('productos').where('id', id);
+    }
+
     getRandomLimited(params) {
         const { cantidad_productos } = params
         return database('productos').orderByRaw('RANDOM()').limit(cantidad_productos);
