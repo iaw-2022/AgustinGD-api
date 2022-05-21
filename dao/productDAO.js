@@ -1,6 +1,6 @@
 const database = require('../database/database');
 
-class ProductoDAO {
+class ProductDAO {
     getAll() {
         return database('productos');
     }
@@ -16,4 +16,4 @@ class ProductoDAO {
     }
 }
 
-module.exports = new ProductoDAO();
+module.exports = new ProductDAO();
