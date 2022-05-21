@@ -1,5 +1,5 @@
 const express = require('express');
-const productoController = require('../../controller/productoController');
+const productController = require('../../controller/productController');
 
 const router = express.Router();
 
@@ -16,7 +16,7 @@ const router = express.Router();
  *          '500':
  *              description: Error del servidor
 */
-router.get('/', productoController.getAll);
+router.get('/', productController.getAll);
 
 /** 
  * @swagger
@@ -38,6 +38,6 @@ router.get('/', productoController.getAll);
  *          '500':
  *              description: Error del servidor
  */
- router.get('/random/:cantidad_productos', productoController.getRandomLimited);
+ router.get('/random/:cantidad_productos', productController.getRandomLimited);
 
 module.exports = router;

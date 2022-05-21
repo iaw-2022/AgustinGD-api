@@ -1,4 +1,4 @@
-const productoDAO = require('./../dao/productoDAO');
+const productoDAO = require('../dao/productDAO');
 
 class ProductoController{
     async getAll(req, res){
