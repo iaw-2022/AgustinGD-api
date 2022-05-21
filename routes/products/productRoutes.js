@@ -40,4 +40,26 @@ router.get('/', productController.getAll);
  */
  router.get('/random/:cantidad_productos', productController.getRandomLimited);
 
+ /** 
+ * @swagger
+ * /api/productos/categoria/{categoria_id}:
+ *   get:
+ *      description: Recupera todos los productos de la categoria X.
+ *      tags: 
+ *          - Productos 
+ *      parameters:
+ *          - in: path
+ *            name: categoria_id
+ *            schema:
+ *              type: integer
+ *            required: true
+ *            description: id de la categoria de los productos
+ *      responses:
+ *          '200':
+ *              description: Respuesta exitosa
+ *          '500':
+ *              description: Error del servidor
+ */
+  router.get('/categoria/:categoria_id', productController.getProductFromCategory);
+
 module.exports = router;
