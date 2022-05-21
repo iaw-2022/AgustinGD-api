@@ -1,12 +1,12 @@
 const database = require('../database/database');
 
-class ProductoDAO{
-    getAll(){
+class ProductoDAO {
+    getAll() {
         return database('productos');
     }
 
-    getRandomLimited(params){
-        const { cantidad_productos } = params        
+    getRandomLimited(params) {
+        const { cantidad_productos } = params
         return database('productos').orderByRaw('RANDOM()').limit(cantidad_productos);
     }
 }
