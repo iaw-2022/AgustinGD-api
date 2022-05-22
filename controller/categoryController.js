@@ -1,4 +1,4 @@
-const CategoryDAO = require('../dao/CategoryDAO');
+const CategoryDAO = require('./../dao/categoryDAO');
 
 class CategoryController {
     async getAll(req, res) {
