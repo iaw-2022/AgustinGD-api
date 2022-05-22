@@ -13,6 +13,12 @@ const router = express.Router();
  *      responses:
  *          '200':
  *              description: Respuesta exitosa
+ *              content:
+ *                application/json:
+ *                  schema:
+ *                    type: array
+ *                    items:
+ *                      $ref: '#/components/schema/Categoria'
  *          '500':
  *              description: Error del servidor
 */
@@ -35,9 +41,15 @@ router.get('/', categoryController.getAll);
  *      responses:
  *          '200':
  *              description: Respuesta exitosa
+ *              content:
+ *                application/json:
+ *                  schema:
+ *                    type: array
+ *                    items:
+ *                      $ref: '#/components/schema/Categoria'
  *          '500':
  *              description: Error del servidor
  */
- router.get('/random/:cantidad_categorias', categoryController.getRandomLimited);
+router.get('/random/:cantidad_categorias', categoryController.getRandomLimited);
 
 module.exports = router;
