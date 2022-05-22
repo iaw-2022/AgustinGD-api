@@ -7,6 +7,7 @@ const router = express.Router();
  * @swagger
  * /api/clientes/{email}:
  *  get:
+ *      summary: Recupera cliente segun email.
  *      description: Recupera a un cliente segun su email. 
  *      tags: 
  *      - Clientes
@@ -43,6 +44,7 @@ router.get('/:email', clientController.getClientByEmail);
  * @swagger
  * /api/clientes:
  *  post:
+ *      summary: Añadir un cliente.
  *      description: Añade al cliente retornando el id en caso de exito. 
  *      tags: 
  *      - Clientes

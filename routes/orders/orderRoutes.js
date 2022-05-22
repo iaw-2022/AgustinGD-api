@@ -7,6 +7,7 @@ const router = express.Router();
  * @swagger
  * /api/pedidos:
  *  post:
+ *      summary: Añadir pedidos.
  *      description: Añade un conjunto de pedidos. 
  *      tags: 
  *      - Pedidos

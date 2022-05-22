@@ -7,6 +7,7 @@ const router = express.Router();
  * @swagger
  * /api/categorias:
  *  get:
+ *      summary: Recupera todas las categorias.
  *      description: Recupera todas las categorias. 
  *      tags: 
  *       - Categorias
@@ -28,6 +29,7 @@ router.get('/', categoryController.getAll);
  * @swagger
  * /api/categorias/random/{cantidad_categorias}:
  *   get:
+ *      summary: Recupera categorias al azar.
  *      description: Recupera X de todas las categorias al azar.
  *      tags: 
  *          - Categorias 

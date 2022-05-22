@@ -7,6 +7,7 @@ const router = express.Router();
  * @swagger
  * /api/productos:
  *  get:
+ *      summary: Recupera todos los productos.
  *      description: Recupera todos los productos. 
  *      tags: 
  *       - Productos
@@ -28,7 +29,8 @@ router.get('/', productController.getAll);
  * @swagger
  * /api/productos/{id}:
  *  get:
- *      description: Recupera un producto segun id. 
+ *      summary: Recupera producto segun id.
+ *      description: Recupera un producto segun su id. 
  *      tags: 
  *      - Productos
  *      parameters:
@@ -63,6 +65,7 @@ router.get('/', productController.getAll);
  * @swagger
  * /api/productos/random/{cantidad_productos}:
  *   get:
+ *      summary: Recupera productos al azar.
  *      description: Recupera X de todos los productos al azar.
  *      tags: 
  *          - Productos 
@@ -91,6 +94,7 @@ router.get('/', productController.getAll);
  * @swagger
  * /api/productos/categoria/{categoria_id}:
  *   get:
+ *      summary: Recupera productos segun categoria.
  *      description: Recupera todos los productos de la categoria X.
  *      tags: 
  *          - Productos 
