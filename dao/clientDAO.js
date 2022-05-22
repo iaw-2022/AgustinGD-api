@@ -7,7 +7,9 @@ class clientDAO {
     }
 
     async addClient(body) {
-        return await database('clientes').returning('id').insert(body);
+        const now = new Date();
+        const cliente = {...body, created_at: now}
+        return await database('clientes').returning('id').insert(cliente);
     }
 }
 
