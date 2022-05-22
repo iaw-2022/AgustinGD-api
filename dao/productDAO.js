@@ -10,6 +10,14 @@ class ProductDAO {
         return database('productos').where('id', id);
     }
 
+    getProductByMultipleId(params) {
+        const { ids } = params
+
+        return database('productos').where((builder) =>
+            builder.whereIn('id', ids)
+        ).orderBy('id');
+    }
+
     getRandomLimited(params) {
         const { cantidad_productos } = params
         return database('productos').orderByRaw('RANDOM()').limit(cantidad_productos);
