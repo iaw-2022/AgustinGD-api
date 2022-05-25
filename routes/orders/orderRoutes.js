@@ -35,6 +35,8 @@ const router = express.Router();
  *                       id: 1
  *                   - example:
  *                       id: 2
+ *        401:
+ *         description: No estas Autenticado
  *        500:
  *         description: Error del servidor
 */
@@ -49,18 +51,17 @@ router.post('/', jwtCheck, orderController.addOrder);
  *      tags: 
  *      - Pedidos
  *      responses:
- *        201:
- *         description: Se crearon con exito
+ *        200:
+ *         description: Respuesta exitosa
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
- *                 oneOf:
- *                   - example:
- *                       id: 1
- *                   - example:
- *                       id: 2
+ *                 $ref: '#/components/schemas/Pedido'
+ *        401:
+ *         description: No estas Autenticado
+ * 
  *        500:
  *         description: Error del servidor
 */
