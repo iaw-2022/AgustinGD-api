@@ -1,5 +1,6 @@
 const database = require('../database/database');
 const productDAO = require('./productDAO');
+const clientDAO = require('./clientDAO')
 
 class orderDAO {
     async addOrder(body) {
@@ -35,6 +36,17 @@ class orderDAO {
 
     async #sortOrderByAscendingProductId(body) {
         body.sort((a, b) => a.producto_id - b.producto_id);
+    }
+
+    async getClientOrders(email_cliente) {
+        const cliente = database('clientes').where('email', email_cliente).as('cliente');
+
+        const pedidos = await database('pedidos')
+            .innerJoin(cliente, 'cliente.id', 'pedidos.cliente_id')
+            .innerJoin('productos', 'productos.id', 'pedidos.producto_id')    
+            .select('pedidos.created_at', 'productos.nombre', 'pedidos.cantidad', 'pedidos.total');
+            
+        return pedidos;
     }
 }
 

@@ -1,5 +1,6 @@
 const express = require('express');
 const orderController = require('../../controller/orderController');
+const jwtCheck = require('../../checkAuth')
 
 const router = express.Router();
 
@@ -38,5 +39,7 @@ const router = express.Router();
  *         description: Error del servidor
 */
 router.post('/', orderController.addOrder);
+
+router.get('/cliente', jwtCheck, orderController.getClientOrders);
 
 module.exports = router;
