@@ -5,14 +5,10 @@
  *   Pedido:
  *    type: object
  *    required:
- *    - cliente_id
  *    - producto_id
  *    - cantidad
  *    properties:
  *     id:
- *      type: integer
- *      format: int64
- *     cliente_id:
  *      type: integer
  *      format: int64
  *     producto_id:
@@ -32,7 +28,6 @@
  *     
  *    example:
  *     id: 1
- *     cliente_id: 1
  *     producto_id: 1
  *     cantidad: 1
  *     total: 11.11
@@ -42,13 +37,9 @@
  *   PedidoPost:
  *    type: object
  *    required:
- *    - cliente_id
  *    - producto_id
  *    - cantidad
  *    properties:
- *     cliente_id:
- *      type: integer
- *      format: int64
  *     producto_id:
  *      type: integer
  *      format: int64
@@ -56,13 +47,11 @@
  *      type: integer
  *     
  *    example:
- *     cliente_id: 1
  *     producto_id: 1
  *     cantidad: 1
  * 
  *   PedidoPost2:     
  *     example:
- *       cliente_id: 1
  *       producto_id: 2
  *       cantidad: 2
  */ 

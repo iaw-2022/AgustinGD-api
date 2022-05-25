@@ -38,8 +38,32 @@ const router = express.Router();
  *        500:
  *         description: Error del servidor
 */
-router.post('/', orderController.addOrder);
+router.post('/', jwtCheck, orderController.addOrder);
 
+/** 
+ * @swagger
+ * /api/pedidos/cliente:
+ *  get:
+ *      summary: Recuperar los pedidos del cliente.
+ *      description: Recupera los pedidos del cliente autenticado. 
+ *      tags: 
+ *      - Pedidos
+ *      responses:
+ *        201:
+ *         description: Se crearon con exito
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 oneOf:
+ *                   - example:
+ *                       id: 1
+ *                   - example:
+ *                       id: 2
+ *        500:
+ *         description: Error del servidor
+*/
 router.get('/cliente', jwtCheck, orderController.getClientOrders);
 
 module.exports = router;

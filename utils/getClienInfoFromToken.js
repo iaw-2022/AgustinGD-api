@@ -1,7 +1,7 @@
-const config = require('./../config');
+const config = require('../config');
 const axios = require('axios').default;
 
-module.exports =  getClientEmailFromToken = async (req) => {
+module.exports =  getClienInfoFromToken = async (req) => {
     const token = req.headers.authorization.split(' ')[1];
         
     const header = {
@@ -9,7 +9,7 @@ module.exports =  getClientEmailFromToken = async (req) => {
             authorization: `Bearer ${token}`,
         },
     };
-    const userinfo = await axios.get(config.AUTH0_ISSUER+"userinfo", header);
+    const response = await axios.get(config.AUTH0_ISSUER+"userinfo", header);
     
-    return userinfo.data.email;
+    return response.data;
 }

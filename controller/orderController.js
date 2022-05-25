@@ -1,9 +1,11 @@
 const orderDAO = require('../dao/orderDAO');
-const getClientIdFromToken = require('../utils/getClientEmailFromToken');
+const getClienInfoFromToken = require('../utils/getClienInfoFromToken');
 
 class OrderController {
     async addOrder(req, res) {
-        orderDAO.addOrder(req.body)
+        const clientInfo = await getClienInfoFromToken(req);
+
+        orderDAO.addOrder(req.body, clientInfo)
             .then(orders => {
                 res.status(201).json(orders)
             })
@@ -13,14 +15,13 @@ class OrderController {
     }
 
     async getClientOrders(req, res) {        
-        const email_cliente = await getClientIdFromToken(req);
+        const clientInfo = await getClienInfoFromToken(req);
 
-        orderDAO.getClientOrders(email_cliente)
+        orderDAO.getClientOrders(clientInfo)
             .then(orders => {
                 res.status(200).json(orders)
             })
             .catch(error => {
-                console.log(error)
                 res.status(500).json({ message: 'No se pudieron recuperar los pedidos' })
             })
     }

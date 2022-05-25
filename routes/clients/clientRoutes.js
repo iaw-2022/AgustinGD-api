@@ -4,7 +4,7 @@ const clientController = require('../../controller/clientController');
 const router = express.Router();
 
 /** 
- * @swagger
+ * 
  * /api/clientes/{email}:
  *  get:
  *      summary: Recupera cliente segun email.
@@ -38,10 +38,10 @@ const router = express.Router();
  *       500:
  *         description: Error del servidor
 */
-router.get('/:email', clientController.getClientByEmail);
+//router.get('/:email', clientController.getClientByEmail);
 
 /** 
- * @swagger
+ * 
  * /api/clientes:
  *  post:
  *      summary: Añadir un cliente.
@@ -67,6 +67,6 @@ router.get('/:email', clientController.getClientByEmail);
  *        500:
  *         description: Error del servidor
 */
-router.post('/', clientController.addClient);
+//router.post('/', clientController.addClient);
 
 module.exports = router;
