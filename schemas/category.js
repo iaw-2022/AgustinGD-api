@@ -1,7 +1,7 @@
 /** 
  * @swagger
  * components:
- *  schema:
+ *  schemas:
  *    Categoria:
  *      type: object
  *      required:

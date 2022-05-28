@@ -20,6 +20,16 @@ class CategoryController {
                 res.status(500).json({ message: 'No se pudieron recuperar las categorias' })
             })
     }
+
+    async getByName(req, res) {
+        CategoryDAO.getByName(req.params)
+            .then(categorias => {
+                res.status(200).json(categorias)
+            })
+            .catch(error => {
+                res.status(500).json({ message: 'No se pudieron recuperar las categorias' })
+            })
+    }
 }
 
 module.exports = new CategoryController();

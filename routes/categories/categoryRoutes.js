@@ -19,7 +19,7 @@ const router = express.Router();
  *                  schema:
  *                    type: array
  *                    items:
- *                      $ref: '#/components/schema/Categoria'
+ *                      $ref: '#/components/schemas/Categoria'
  *          '500':
  *              description: Error del servidor
 */
@@ -48,10 +48,39 @@ router.get('/', categoryController.getAll);
  *                  schema:
  *                    type: array
  *                    items:
- *                      $ref: '#/components/schema/Categoria'
+ *                      $ref: '#/components/schemas/Categoria'
  *          '500':
  *              description: Error del servidor
  */
 router.get('/random/:cantidad_categorias', categoryController.getRandomLimited);
+
+/** 
+ * @swagger
+ * /api/categorias/{nombre}:
+ *   get:
+ *      summary: Recupera una categoria segun nombre.
+ *      description: Recupera una categoria segun el nombre (Case insensitive).
+ *      tags: 
+ *          - Categorias 
+ *      parameters:
+ *          - in: path
+ *            name: nombre
+ *            schema:
+ *              type: string
+ *            required: true
+ *            description: nombre de la categoria
+ *      responses:
+ *          '200':
+ *              description: Respuesta exitosa
+ *              content:
+ *                application/json:
+ *                  schema:
+ *                    type: array
+ *                    items:
+ *                      $ref: '#/components/schemas/Categoria'
+ *          '500':
+ *              description: Error del servidor
+ */
+ router.get('/:nombre', categoryController.getByName);
 
 module.exports = router;
