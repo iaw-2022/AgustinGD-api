@@ -10,14 +10,14 @@ class ProductController{
             res.status(500).json({ message: 'No se pudieron recuperar los productos'})
         })
     }
-    
-    async getProductById(req, res){
-        productoDAO.getProductById(req.params)
+
+    async getByName(req, res){
+        productoDAO.getByName(req.params)
         .then( products =>{
             res.status(200).json(products)
         })
         .catch( error =>{
-            res.status(500).json({ message: 'No se pudieron recuperar los productos'})
+            res.status(500).json({ message: 'No se pudo recuperar el producto'})
         })
     }
 

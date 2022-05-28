@@ -19,28 +19,27 @@ const router = express.Router();
  *                  schema:
  *                    type: array
  *                    items:
- *                      $ref: '#/components/schema/Producto'
+ *                      $ref: '#/components/schemas/Producto'
  *          '500':
  *              description: Error del servidor
 */
 router.get('/', productController.getAll);
 
-/** 
+ /** 
  * @swagger
- * /api/productos/{id}:
+ * /api/productos/{nombre}:
  *  get:
- *      summary: Recupera producto segun id.
- *      description: Recupera un producto segun su id. 
+ *      summary: Recupera producto segun nombre.
+ *      description: Recupera un producto segun su nombre (Case insensitive). 
  *      tags: 
  *      - Productos
  *      parameters:
  *      - in: path
- *        name: id
+ *        name: nombre
  *        schema:
- *          type: integer
- *          format: int64
+ *          type: string
  *        required: true
- *        description: id del producto
+ *        description: nombre del producto
  *      responses:
  *        200:
  *          description: Respuesta exitosa
@@ -49,17 +48,11 @@ router.get('/', productController.getAll);
  *              schema:
  *                type: array
  *                items:
- *                  $ref: '#/components/schema/Producto'
- *        404:
- *          description: No se encontro el producto
- *          content:
- *            application/json:
- *              schema:
- *                example: []                  
+ *                  $ref: '#/components/schemas/Producto'               
  *        500:
  *          description: Error del servidor
 */
- router.get('/:id', productController.getProductById);
+router.get('/:nombre', productController.getByName);
 
 /** 
  * @swagger
@@ -84,7 +77,7 @@ router.get('/', productController.getAll);
  *                  schema:
  *                    type: array
  *                    items:
- *                      $ref: '#/components/schema/Producto'
+ *                      $ref: '#/components/schemas/Producto'
  *          '500':
  *              description: Error del servidor
  */
@@ -113,7 +106,7 @@ router.get('/', productController.getAll);
  *                  schema:
  *                    type: array
  *                    items:
- *                      $ref: '#/components/schema/Producto' 
+ *                      $ref: '#/components/schemas/Producto' 
  *          404:
  *            description: No se encontro la categoria
  *            content:
