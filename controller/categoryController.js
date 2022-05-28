@@ -27,7 +27,7 @@ class CategoryController {
                 res.status(200).json(categorias)
             })
             .catch(error => {
-                res.status(500).json({ message: 'No se pudieron recuperar las categorias' })
+                res.status(500).json({ message: 'No se pudo recuperar la categoria' })
             })
     }
 }
