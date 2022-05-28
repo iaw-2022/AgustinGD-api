@@ -13,7 +13,7 @@ class CategoryDAO {
     getByName(params) {
         const { nombre } = params
         const nombreLower = nombre.toLowerCase();
-        return database('categorias').whereRaw(`LOWER(nombre) LIKE ?`, `%${nombreLower}%`);
+        return database('categorias').whereRaw(`LOWER(nombre) LIKE ?`, `${nombreLower}`);
     }
 }
 
