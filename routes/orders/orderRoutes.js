@@ -12,6 +12,8 @@ const router = express.Router();
  *      description: Añade un conjunto de pedidos. 
  *      tags: 
  *      - Pedidos
+ *      security:
+ *      - bearerAuth: []
  *      requestBody:
  *        required: true
  *        content:
@@ -50,6 +52,8 @@ router.post('/', jwtCheck, orderController.addOrder);
  *      description: Recupera los pedidos del cliente autenticado. 
  *      tags: 
  *      - Pedidos
+ *      security:
+ *      - bearerAuth: []
  *      responses:
  *        200:
  *         description: Respuesta exitosa
