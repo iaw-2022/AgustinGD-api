@@ -30,7 +30,7 @@ class orderDAO {
     async #getProductsFromOrders(body) {
         const productsId = body.map((order) => order.producto_id);
 
-        if (productsId.length == 0 )
+        if (productsId.length == 0)
             throw new Error('(ERROR) Order is empty');
 
         return productDAO.getProductByMultipleId({ ids: productsId });
@@ -62,7 +62,7 @@ class orderDAO {
         const pedidos = await database('pedidos')
             .innerJoin(cliente, 'cliente.id', 'pedidos.cliente_id')
             .innerJoin('productos', 'productos.id', 'pedidos.producto_id')
-            .select('pedidos.created_at', 'productos.nombre', 'pedidos.cantidad', 'pedidos.total')
+            .select('pedidos.id', 'productos.nombre', 'pedidos.cantidad', 'pedidos.total', 'pedidos.created_at')
             .orderBy('pedidos.created_at', 'desc');
 
         return pedidos;
