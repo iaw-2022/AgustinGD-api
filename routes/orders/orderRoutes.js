@@ -6,10 +6,10 @@ const router = express.Router();
 
 /** 
  * @swagger
- * /api/pedidos:
+ * /api/pedidos/cliente:
  *  post:
- *      summary: Añadir pedidos.
- *      description: Añade un conjunto de pedidos. 
+ *      summary: Añadir pedidos para cliente.
+ *      description: Añade un conjunto de pedidos para el cliente autenticado. 
  *      tags: 
  *      - Pedidos
  *      security:
@@ -42,7 +42,7 @@ const router = express.Router();
  *        500:
  *         description: Error del servidor
 */
-router.post('/', jwtCheck, orderController.addOrder);
+router.post('/cliente', jwtCheck, orderController.addOrder);
 
 /** 
  * @swagger
