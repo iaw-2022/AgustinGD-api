@@ -1,6 +1,6 @@
 const express = require('express');
 const orderController = require('../../controller/orderController');
-const jwtCheck = require('../../checkAuth')
+const { jwtCheck } = require('../../checkAuth')
 
 const router = express.Router();
 

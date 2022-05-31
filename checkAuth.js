@@ -14,4 +14,12 @@ var jwtCheck = jwt({
     algorithms: [config.AUTH0_ALGORITHM],
 });
 
-module.exports = jwtCheck;
+const unauthorizedErrorHandler = (err, req, res, next) => {
+    if(err.name === "UnauthorizedError")
+        res.status(401).json({ message: 'No estas autorizado' });
+}
+
+module.exports = {
+    jwtCheck,
+    unauthorizedErrorHandler
+}
